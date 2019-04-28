@@ -1,14 +1,12 @@
 package beerV1;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -31,14 +29,29 @@ public class BeerSelect extends HttpServlet {
         }
     }
 
-    @Override
-    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        System.out.println("req = [" + req.getParameterNames().toString() + "], res = [" + res + "]");
-        super.service(req, res);
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("================================ ServletConfig ================================");
+        System.out.println("getServletContext().getMajorVersion() = " + getServletContext().getMajorVersion());
+        System.out.println("getServletContext().getServerInfo() = " + getServletContext().getServerInfo());
+        String adminEmail = getServletConfig().getInitParameter("adminEmail");
+        System.out.println("adminEmail = " + adminEmail);
+
+        Enumeration<String> attributeNames = getServletContext().getAttributeNames();
+        while (attributeNames.hasMoreElements()) {
+            String element = attributeNames.nextElement();
+            System.out.println(element+" => " + getServletContext().getAttribute(element));
+        }
+        System.out.println("================================ ServletContext ================================");
+
+        String mainEmail = getServletContext().getInitParameter("mainEmail");
+        System.out.println("mainEmail = " + mainEmail);
+
         String color = request.getParameter("color");
+        System.out.println("color = " + color);
+        String body = request.getParameter("body");
+        System.out.println("body = " + body);
+        String[] sizes = request.getParameterValues("sizes");
+        System.out.println("sizes = " + Arrays.toString(sizes));
         List<String> advice = new BeerExpert().advice(color);
 //        System.out.println("BeerSelect.doPost");
 //        response.setContentType("text/html");
@@ -49,7 +62,13 @@ public class BeerSelect extends HttpServlet {
 //        writer.close();
 
         request.setAttribute("styles",advice);
+        request.setAttribute("adminEmail",adminEmail);
+//        request.setAttribute("mainEmail",mainEmail);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("result.jsp");
+
+//        response.addHeader("foo","bar");
+//        response.setHeader("foo","bar");
+//        response.sendRedirect("");
         requestDispatcher.forward(request,response);
     }
 

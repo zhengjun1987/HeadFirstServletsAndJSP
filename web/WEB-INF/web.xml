@@ -14,9 +14,25 @@
     <servlet>
         <servlet-name>BeerSelect</servlet-name>
         <servlet-class>beerV1.BeerSelect</servlet-class>
+        <init-param>
+            <param-name>adminEmail</param-name>
+            <param-value>zhengjun1987@gmail.com</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>BeerSelect</servlet-name>
         <url-pattern>/SelectBeer.do</url-pattern>
     </servlet-mapping>
+
+    <context-param>
+        <param-name>mainEmail</param-name>
+        <param-value>zhengjun1987@outlook.com</param-value>
+    </context-param>
+    <listener>
+        <listener-class>beerV1.MyServletContextListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>breed</param-name>
+        <param-value>Great Dane</param-value>
+    </context-param>
 </web-app>

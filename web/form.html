@@ -8,7 +8,7 @@
 <h1 align="center">Beer Selection Page</h1>
 <form method="post" action="SelectBeer.do">
     Select Beer Characteristics
-    <p>
+    <input>
         Color:
         <select name="color" size="1">
             <option value="light"> light</option>
@@ -17,6 +17,18 @@
             <option value="dark"> dark</option>
         </select>
         <br><br>
+        Body:
+        <select name="body" size="1">
+            <option value="light"> light</option>
+            <option value="medium"> medium</option>
+            <option value="heavy"> heavy</option>
+        </select>
+        <br><br>
+
+        Can Sizes:
+        <input type="checkbox" name="sizes" value="12oz">12 oz.</input>
+        <input type="checkbox" name="sizes" value="16oz">16 oz.</input>
+        <input type="checkbox" name="sizes" value="22oz">22 oz.</input>
     <div style="text-align: center;">
         <input type="submit">
     </div>

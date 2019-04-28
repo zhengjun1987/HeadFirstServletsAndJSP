@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="java.util.*" %>
+<%@ page import="beerV1.Dog" %>
 <html>
 <head>
     <title>Beer Recommendation JSP</title>
@@ -18,6 +19,11 @@
     for (Object style : styles) {
         out.print("<br> Try " + style);
     }
+    Dog dog = (Dog) getServletConfig().getServletContext().getAttribute("dog");
+    out.println("\nDog's breed is " + dog.getBreed());
+    out.println("\nE-mail:" + request.getAttribute("adminEmail"));
+    out.println("\nE-mail:" + getServletConfig().getServletContext().getInitParameter("mainEmail"));
+
 %>
 </body>
 </html>

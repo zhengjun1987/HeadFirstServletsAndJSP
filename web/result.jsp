@@ -24,6 +24,10 @@
     out.println("\nE-mail:" + request.getAttribute("adminEmail"));
     out.println("\nE-mail:" + getServletConfig().getServletContext().getInitParameter("mainEmail"));
 
+    pageContext.setAttribute("foo", 22.4f);
+    Float foo = (Float) pageContext.getAttribute("foo");
+
+    Object findFoo = pageContext.findAttribute("foo");
 %>
 </body>
 </html>

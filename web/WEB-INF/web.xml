@@ -12,6 +12,14 @@
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ELServlet</servlet-name>
+        <servlet-class>foo.ELTestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ELServlet</servlet-name>
+        <url-pattern>/elTest</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>BeerSelect</servlet-name>
         <servlet-class>beerV1.BeerSelect</servlet-class>
         <init-param>

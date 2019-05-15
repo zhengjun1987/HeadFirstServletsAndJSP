@@ -42,7 +42,6 @@ public class BeerSelect extends HttpServlet {
             System.out.println(element+" => " + getServletContext().getAttribute(element));
         }
         System.out.println("================================ ServletContext ================================");
-
         String mainEmail = getServletContext().getInitParameter("mainEmail");
         System.out.println("mainEmail = " + mainEmail);
 

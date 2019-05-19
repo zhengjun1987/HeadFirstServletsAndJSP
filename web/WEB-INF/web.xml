@@ -12,6 +12,14 @@
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>CheckCookieServlet</servlet-name>
+        <servlet-class>beerV1.CheckCookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckCookieServlet</servlet-name>
+        <url-pattern>/checkcookie.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>ELServlet</servlet-name>
         <servlet-class>foo.ELTestServlet</servlet-class>
     </servlet>
@@ -38,6 +46,12 @@
     </context-param>
     <listener>
         <listener-class>beerV1.MyServletContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>beerV1.BeerSessionCounter</listener-class>
+    </listener>
+    <listener>
+        <listener-class>beerV1.BeerAttributListener</listener-class>
     </listener>
     <context-param>
         <param-name>breed</param-name>

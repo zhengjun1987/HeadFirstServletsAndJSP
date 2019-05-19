@@ -13,6 +13,29 @@
 </head>
 <body>
 <h1 align="center">Beer Recommendation JSP</h1>
+<%! static int count = 0;%>
+<%!
+    static int getCount() {
+        return ++count;
+    }
+%>
+<%=5 > 3 %>
+<p>
+<%=false %>
+<p>
+<%=27 %>
+<p>
+<%=getCount() %>
+<p>
+<%=getCount() %>
+<p>
+<%=27 * 42 %>
+<p>
+<%="27"%>
+<p>
+<%=new String[3]%>
+<p>
+<%=Math.random()%>
 <p></p>
 <%
     List styles = (List) request.getAttribute("styles");

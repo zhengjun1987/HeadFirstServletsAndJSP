@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "ELTestServlet")
 public class ELTestServlet extends HttpServlet {
@@ -28,6 +29,20 @@ public class ELTestServlet extends HttpServlet {
         toy3.setName("Barbie™ doll head");
         dog.setToys(new Toy[]{toy1,toy2,toy3});
         request.setAttribute("person",person);
+
+        String num = "2";
+        request.setAttribute("num",num);
+
+        Integer i = new Integer(3);
+        request.setAttribute("integer",i);
+
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("true");
+        strings.add("false");
+        strings.add("2");
+        strings.add("10");
+        request.setAttribute("list",strings);
+
         getServletContext().setAttribute("currentTip","Tags make things bold!");
         RequestDispatcher requestDispatcher =
                 request.getRequestDispatcher("elTest.jsp");

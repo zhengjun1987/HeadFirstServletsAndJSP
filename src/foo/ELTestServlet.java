@@ -27,25 +27,32 @@ public class ELTestServlet extends HttpServlet {
         toy2.setName("neighbor's cat");
         Toy toy3 = new Toy();
         toy3.setName("Barbie™ doll head");
-        dog.setToys(new Toy[]{toy1,toy2,toy3});
-        request.setAttribute("person",person);
+        dog.setToys(new Toy[]{toy1, toy2, toy3});
+        request.setAttribute("person", person);
 
         String num = "2";
-        request.setAttribute("num",num);
+        request.setAttribute("num", num);
 
         Integer i = new Integer(3);
-        request.setAttribute("integer",i);
+        request.setAttribute("integer", i);
 
         ArrayList<String> strings = new ArrayList<String>();
         strings.add("true");
         strings.add("false");
         strings.add("2");
         strings.add("10");
-        request.setAttribute("list",strings);
+        request.setAttribute("list", strings);
 
-        getServletContext().setAttribute("currentTip","Tags make things bold!");
+        request.setAttribute("userType","member");
+
+        request.setAttribute("currentTip", "<b></b> tags make things bold!");
+
+        String[] movies = {"Amelie", "Return of the King", "Mean Girls"};
+        request.setAttribute("movies", movies);
+
+//        getServletContext().setAttribute("currentTip","Tags make things bold!");
         RequestDispatcher requestDispatcher =
-                request.getRequestDispatcher("elTest.jsp");
-        requestDispatcher.forward(request,response);
+                request.getRequestDispatcher("Comments.jsp");
+        requestDispatcher.forward(request, response);
     }
 }

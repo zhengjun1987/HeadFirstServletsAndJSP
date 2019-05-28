@@ -5,8 +5,10 @@
   Time: 13:46
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="mine" uri="DiceFunctions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
 <head>
     <title>Tester</title>
@@ -18,7 +20,7 @@
 <p></p>
 <div class="tipBox">
     <b>Tip of the Day:</b><br/><br/>
-    ${applicationScope.currentTip}
+    pageContext.request.getParameter("currentTip") = <c:out value='${pageContext.request.getAttribute("currentTip")}' />
     <p>
         Roll a dice: ${mine:rollIt()}
         <br>
@@ -46,9 +48,16 @@
         <jsp:setProperty name="dog" property="name" value="${requestScope.list[1]}"/>
     </jsp:useBean>
 
+    42 div 0 == ${42 div 0}
     dog.name and true == ${dog.name and true}
     <br/>
-    42 div 0 == ${42 div 0}
 </div>
+<table>
+    <c:forEach items="${requestScope.movies}" var="movie" varStatus="varStatus">
+        <tr>
+            <td>${varStatus.count} => ${movie}</td>
+        </tr>
+    </c:forEach>
+</table>
 </body>
 </html>

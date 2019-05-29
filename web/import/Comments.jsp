@@ -17,7 +17,19 @@
 <hr>This site is cool.
 <hr>This site is stupid.<hr>
 <c:if test="${requestScope.userType eq 'member'}">
-    <jsp:include page="InputComments.jsp"/>
+    <jsp:include page="/import/InputComments.jsp"/>
 </c:if>
+
+<c:choose>
+    <c:when test="${requestScope.userType eq 'member'}">
+        Now you can stop even if you <em>do</em> drive insanely fast.
+    </c:when>
+    <c:when test="${requestScope.userType eq 'guest'}">
+        Our brakes will never lock up, no matter how bad a driver you are.
+    </c:when>
+    <c:otherwise>
+        Our brakes are the best.
+    </c:otherwise>
+</c:choose>
 </body>
 </html>

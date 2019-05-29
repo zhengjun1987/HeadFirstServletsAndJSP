@@ -12,7 +12,7 @@
 </head>
 <body>
 <%--<%@ include file="Header.jsp" %>--%>
-<jsp:include page="Header.jsp">
+<jsp:include page="/import/Header.jsp">
     <jsp:param name="subTitle" value="We take the sting out of SOAP."/>
 </jsp:include>
 <br>

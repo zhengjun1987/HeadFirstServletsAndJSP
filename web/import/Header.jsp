@@ -5,5 +5,5 @@
   Time: 16:39
   To change this template use File | Settings | File Templates.
 --%>
-<img src="images/timg.jpg"/><br/>
+<img src="../images/timg.jpg"/><br/>
 <em><strong>${param.subTitle}</strong></em>

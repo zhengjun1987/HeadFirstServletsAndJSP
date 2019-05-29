@@ -17,6 +17,7 @@
 <jsp:useBean id="person" type="foo.Person" scope="request"/>
 <h1>${person.name}'s dog ${person.dog.name}'s toys are: ${person.dog.toys[0].name}, ${person.dog.toys[1].name}
     and ${person.dog.toys[2].name}.</h1>
+<c:set target="${person}" property="name" value="Clover"/>
 <p></p>
 <div class="tipBox">
     <b>Tip of the Day:</b><br/><br/>
@@ -52,6 +53,8 @@
     dog.name and true == ${dog.name and true}
     <br/>
 </div>
+<c:set var="userLevel" scope="session" value="Cowboy"/>
+<c:set var="Fido">${person.dog}</c:set>
 <table>
     <c:forEach items="${requestScope.movies}" var="movie" varStatus="varStatus">
         <tr>

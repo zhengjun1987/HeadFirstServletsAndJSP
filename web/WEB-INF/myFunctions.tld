@@ -8,12 +8,10 @@
     <tlib-version>1.0</tlib-version>
     <short-name>DiceFunctions</short-name>
     <uri>DiceFunctions</uri>
+
     <function>
         <name>rollIt</name>
         <function-class>foo.DiceRoller</function-class>
         <function-signature>int rollDice()</function-signature>
     </function>
-
-    <!-- Invoke 'Generate' action to add tags or functions -->
-
 </taglib>

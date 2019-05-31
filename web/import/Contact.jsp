@@ -8,6 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="myTags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="mytags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="simpletags" uri="http://mycompany.com" %>
 <%@ taglib prefix="simpletags2" uri="http://mycompany.com/simple2" %>
@@ -21,9 +22,21 @@
 </head>
 <body>
 <%--<%@ include file="Header.jsp" %>--%>
-<jsp:include page="/import/Header.jsp">
-    <jsp:param name="subTitle" value="We take the sting out of SOAP."/>
-</jsp:include>
+
+<%-- 此处是在用jsp的include标签导入 --%>
+<%--<jsp:include page="/import/Header.jsp">--%>
+    <%--<jsp:param name="subTitle" value="We take the sting out of SOAP."/>--%>
+<%--</jsp:include>--%>
+
+<%-- 此处是在用自定义标签导入 --%>
+<myTags:Header subTitle="这里是自定义标签的副标题" fontColor="#660099">
+    Created by IntelliJ IDEA.<br>
+    User: Administrator<br>
+    Date: 2019/5/22<br>
+    Time: 16:44<br>
+    To change this template use File | Settings | File Templates.
+</myTags:Header>
+
 <br>
 <em>We can help.</em><br><br>
 Contact us at:${initParam.mainEmail}

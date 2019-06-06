@@ -1,7 +1,10 @@
+<%@ page import="java.util.Arrays" %>
 <%@ taglib prefix="myadvice" uri="http://hpface.com/advice" %>
 <%@ taglib prefix="classics" uri="http://mycompany.com/classic1" %>
 <%@ taglib prefix="classics2" uri="http://mycompany.com/classic2" %>
 <%@ taglib prefix="classics3" uri="http://mycompany.com/classic3" %>
+<%@ taglib prefix="classics4" uri="http://mycompany.com/iterator" %>
+<%@ taglib prefix="options" uri="http://mycompany.com/option" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -33,5 +36,29 @@
     <h1>怎么说呢…回味一下，米划过手指抑或手指拂过米的那种触感，那是和指尖划黑板完全对立的另一个极端，
         <br>是白桃薯片在舌尖散开的桃子香气，是风吹动少年的白衬衫衣摆，是阳光洒在身上不冷不热刚好适合做梦的温度，可能这就是…初恋的味道叭。</h1>
 </classics3:classic3>
+<hr>
+传统标记处理器4<br>
+<table>
+    <classics4:iterator>
+        <tr>
+            <td>
+                    ${movie}
+            </td>
+        </tr>
+    </classics4:iterator>
+</table>
+<hr>
+标记处理器-练习<br>
+<%
+    String[] strings = {"light", "amber", "dark", "brown"};
+    application.setAttribute("optionList", Arrays.asList(strings));
+%>
+<form method="post" action="SelectBeer.do">
+    <p>Select beer characteristics:</p>
+    Color:
+    <options:option optionList="${applicationScope.optionList}" size="3" name="color"/>
+    <br><br>
+    <input type="submit"/>
+</form>
 </body>
 </html>
